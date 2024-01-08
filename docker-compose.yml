@@ -108,21 +108,6 @@ services:
     command: webserver
     entrypoint: ['/opt/airflow/script/entrypoint.sh']
     depends_on:                                             
-
-
-    services:
-  webserver:
-    image: apache/airflow:2.6.0-python3.9
-    # ... (other configurations)
-
-    volumes:
-      - ./requirements.txt:/opt/airflow/requirements.txt
-      - ./dags:/opt/airflow/dags
-      - ./script/entrypoint.sh:/opt/airflow/script/entrypoint.sh
-
-
-
-
       - postgres
     environment:
       - LOAD_EX=n
