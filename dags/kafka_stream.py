@@ -40,6 +40,8 @@ def stream_data():
     from kafka import KafkaProducer
     import time
     import logging
+    res = get_data()
+    res = format_data(res)
 
     producer = KafkaProducer(bootstrap_servers=['localhost:9092'], max_block_ms=5000)
     producer.send('users_created', json.dumps(res).encode('utf-8'))
