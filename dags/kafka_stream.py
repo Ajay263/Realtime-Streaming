@@ -5,7 +5,7 @@ from airflow.operators.python import PythonOperator
 
 default_args = {
     'owner': 'Ajay',
-    'start_date': datetime(2024, 1, 9, 12, 09)
+    'start_date': datetime(2024, 1, 9, 12, 9)
 }
 
 def get_data():
@@ -24,8 +24,7 @@ def format_data(res):
     data['first_name'] = res['name']['first']
     data['last_name'] = res['name']['last']
     data['gender'] = res['gender']
-    data['address'] = f"{str(location['street']['number'])} {location['street']['name']}, " \
-                      f"{location['city']}, {location['state']}, {location['country']}"
+    data['address'] = f"{str(location['street']['number'])} {location['street']['name']}, "f"{location['city']}, {location['state']}, {location['country']}"
     data['post_code'] = location['postcode']
     data['email'] = res['email']
     data['username'] = res['login']['username']
